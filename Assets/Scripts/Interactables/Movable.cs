@@ -22,12 +22,6 @@ namespace Assets.Scripts.Interactables
             commands.Add(Cmd.right, new Command(Right));
             commands.Add(Cmd.left, new Command(Left));
             TargetPosition = transform.position;
-
-            identifier = "M";
-            commands.Add(Cmd.up, new Command(Up));
-            commands.Add(Cmd.down, new Command(Down));
-            commands.Add(Cmd.right, new Command(Right));
-            commands.Add(Cmd.left, new Command(Left));
             base.Start();
         }
 
