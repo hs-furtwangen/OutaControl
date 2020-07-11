@@ -29,7 +29,7 @@ public class InteractableManager
 
   public void StartGame()
   {
-
+ 
   }
 
   public void DistributeCommand(string objectID, string command, string args = ""){
