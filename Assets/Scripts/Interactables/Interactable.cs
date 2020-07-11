@@ -16,11 +16,15 @@ public abstract class Interactable : MonoBehaviour
 {
   public TextMeshProUGUI NameTextObject;
   public char identifier = 'X';
-  public float activationCooldown = 0;
+  public float reactivationCooldown = 0;
   public float activeDuration = 0;
   public TEAM allowedTeam = TEAM.BOTH;
+  public int activationThreshold = 1;
+  public float commandWeight = 1.0f;
   private string fullIdentifier = "";
   protected Dictionary<string, Command> commands = new Dictionary<string, Command>();
+  protected float currentReactivationCooldown = 0.0f;
+  protected float currentlyActiveCooldown = 0.0f;
   protected void Start()
   {
     InteractableManager.instance.Register(this);
@@ -36,6 +40,12 @@ public abstract class Interactable : MonoBehaviour
   {
     this.fullIdentifier = name;
     NameTextObject.text = name;
+
+  }
+
+  public void SetCommandWeight(int activePlayerCount)
+  {
+    commandWeight = 10.0f / activePlayerCount;
   }
 
   public void DoCommand(string action, string message = "")

@@ -27,9 +27,12 @@ public class InteractableManager
     it.SetName(newName);
   }
 
-  public void StartGame()
+  public void StartGame(int amountPlayers)
   {
- 
+    foreach (Interactable it in interactables.Values)
+    {
+      it.SetCommandWeight(amountPlayers);
+    }
   }
 
   public void DistributeCommand(string objectID, string command, string args = ""){
