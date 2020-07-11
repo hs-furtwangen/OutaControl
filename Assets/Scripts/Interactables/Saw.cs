@@ -13,11 +13,5 @@ namespace Assets.Scripts.Interactables
       base.Start();
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
   }
 }

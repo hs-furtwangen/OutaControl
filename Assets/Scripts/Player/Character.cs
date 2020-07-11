@@ -20,9 +20,12 @@ public class Character : MonoBehaviour
         set
         {
             _forwardDirection = value;
-            GetComponent<SpriteRenderer>().flipX = _forwardDirection == MovingDirection.Left;
+            GetComponent<SpriteRenderer>().flipX = _forwardDirection == MovingDirection.Left;           
         }
     }
+
+
+
     public int FrameCntAfterToCheckForStuck = 5;
     public float MaxAllowedZAngleInDeg = 35.0f;
 
@@ -30,10 +33,33 @@ public class Character : MonoBehaviour
     private int positionCheckCnt;
     private float invulnerabilityCooldown = 0.0f;
 
+    private Animator animator;
+    private Collider2D collider;
+
     // Start is called before the first frame update
     void Start()
     {
+       
+        animator = GetComponent<Animator>();
+
+
+        animator.SetBool("IsFalling", true);
         lastPosition = transform.position;
+  
+
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        animator.SetBool("IsIdle", false);
+        animator.SetBool("IsWalking", false);
+        animator.SetBool("IsFalling", true);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        animator.SetBool("IsFalling", false);
+        animator.SetBool("IsIdle", true);
     }
 
     // Update is called once per frame
@@ -43,22 +69,16 @@ public class Character : MonoBehaviour
             GameLogic.State = GameState.GameOver;
 
         // TODO: Refactor. Make it good :)
-        var vec = (ForwardDirection == MovingDirection.Right ? 1.0f : -1.0f) * ForwardSpeed * Time.deltaTime;
-        transform.position += Vector3.right * vec;
 
-        //++positionCheckCnt;
+        ++positionCheckCnt;
+        if(positionCheckCnt > 1000 && !animator.GetBool("IsFalling"))
+        {
+            animator.SetBool("IsWalking", true);
 
-        //// check every x frames (user set) if we kept moving, if not jump
-        //if ((positionCheckCnt * Time.deltaTime) > FrameCntAfterToCheckForStuck)
-        //{
-        //    if (transform.position.x - lastPosition.x < ForwardSpeed * 5f)
-        //    {
-        //        GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400f);
-        //    }
-
-        //    lastPosition = transform.position;
-        //    positionCheckCnt = 0;
-        //}
+            var vec = (ForwardDirection == MovingDirection.Right ? 1.0f : -1.0f) * ForwardSpeed * Time.deltaTime;
+            transform.position += Vector3.right * vec;
+        }
+     
 
         //update invulnerability value
         if (invulnerabilityCooldown <= 0)
