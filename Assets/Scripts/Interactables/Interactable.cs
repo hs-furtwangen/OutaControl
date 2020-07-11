@@ -15,7 +15,7 @@ public delegate void Command(string message);
 public abstract class Interactable : MonoBehaviour
 {
   public TextMeshProUGUI NameTextObject;
-  public char identifier = 'X';
+  public string identifier = "X";
   public float reactivationCooldown = 0;
   public float activeDuration = 0;
   public TEAM allowedTeam = TEAM.BOTH;

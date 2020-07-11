@@ -6,7 +6,7 @@ public class Platform : Interactable
   int counter = 0;
   new void Start()
   {
-    identifier = 'P';
+    identifier = "P";
     commands.Add("up", new Command(up));
     commands.Add("down", new Command(down));
     commands.Add("right", new Command(right));

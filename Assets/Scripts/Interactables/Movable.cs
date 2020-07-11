@@ -18,7 +18,7 @@ namespace Assets.Scripts.Interactables
 
         private new void Start()
         {
-            identifier = 'P';
+            identifier = "M";
             commands.Add("up", new Command(Up));
             commands.Add("down", new Command(Down));
             commands.Add("right", new Command(Right));

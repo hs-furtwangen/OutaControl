@@ -6,7 +6,7 @@ public class InteractableManager
 {
   public static InteractableManager instance = new InteractableManager();
   Dictionary<string, Interactable> interactables = new Dictionary<string, Interactable>();
-  Dictionary<char, int> intIndex = new Dictionary<char, int>();
+  Dictionary<string, int> intIndex = new Dictionary<string, int>();
 
   public void Register(Interactable it)
   {
