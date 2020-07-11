@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using TwitchLib.Api.Models.Helix.Games.GetGames;
+using TwitchLib.Api.Models.v5.Teams;
 using TwitchLib.Client.Models;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.XR.WSA.Input;
 
 public class ChatCommandParser
 {
@@ -66,12 +68,34 @@ public class ChatCommandParser
         if (!(System.Enum.TryParse(commands[0], out cmd)))
             return;
 
+        TEAM team = TEAM.BOTH;
+
+        if (GameLogic.State == GameState.Playing)
+        {
+            if (_goodPlayers.Contains(name))
+            {
+                team = TEAM.GOOD;
+            }
+            else if (_evilPlayers.Contains(name))
+            {
+                team = TEAM.BAD;
+            }
+            else
+            {
+                return;
+            }
+        }
+
         switch (cmd)
         {
             case MsgCmd.move:
                 if (GameLogic.State == GameState.Playing)
                 {
+                    var subcmd = Cmd.none;
+                    if (!(System.Enum.TryParse(commands[0], out subcmd)))
+                        return;
 
+                    InteractableManager.instance.DistributeCommand(subcmd, commands[1], team);
                 }
                 break;
 

@@ -7,10 +7,10 @@ public class Platform : Interactable
   new void Start()
   {
     identifier = "P";
-    commands.Add("up", new Command(up));
-    commands.Add("down", new Command(down));
-    commands.Add("right", new Command(right));
-    commands.Add("left", new Command(left));
+    commands.Add(Cmd.up, new Command(up));
+    commands.Add(Cmd.down, new Command(down));
+    commands.Add(Cmd.right, new Command(right));
+    commands.Add(Cmd.left, new Command(left));
     base.Start();
     targetPosition = transform.position;
   }

@@ -44,7 +44,7 @@ public class InteractableManager
     }
   }
 
-  public void DistributeCommand(string objectID, string command, string args = "")
+  public void DistributeCommand(Cmd command, string objectID, TEAM team, string args = "")
   {
     if (!interactables.ContainsKey(objectID)) return;
     interactables[objectID].DoCommand(command, args);
