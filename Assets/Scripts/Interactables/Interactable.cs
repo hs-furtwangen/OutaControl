@@ -56,11 +56,11 @@ public abstract class Interactable : MonoBehaviour
     commandWeight = 10.0f / activePlayerCount;
   }
 
-  public void DoCommand(Cmd action, string message = "")
+  public void DoCommand(Cmd cmd, string message = "")
   {
-    if (commands.ContainsKey(action))
+    if (commands.ContainsKey(cmd))
     {
-      commands[action](message);
+      commands[cmd](message);
     }
   }
 }

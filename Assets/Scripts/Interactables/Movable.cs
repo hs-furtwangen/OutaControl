@@ -24,10 +24,10 @@ namespace Assets.Scripts.Interactables
             TargetPosition = transform.position;
 
             identifier = "M";
-            commands.Add("Up", new Command(Up));
-            commands.Add("Down", new Command(Down));
-            commands.Add("Right", new Command(Right));
-            commands.Add("Left", new Command(Left));
+            commands.Add(Cmd.up, new Command(Up));
+            commands.Add(Cmd.down, new Command(Down));
+            commands.Add(Cmd.right, new Command(Right));
+            commands.Add(Cmd.left, new Command(Left));
             base.Start();
         }
 
