@@ -38,8 +38,17 @@ public abstract class Interactable : MonoBehaviour
 
   public void SetName(string name)
   {
+    //Set name and color of the name
+    Color badTeamColor = new Color(1, 0, 0, 1);
+    Color goodTeamColor = new Color(0, 0, 1, 1);
+    Color neutralTeamColor = new Color(1, 1, 1, 1);
     this.fullIdentifier = name;
     NameTextObject.text = name;
+    NameTextObject.color = neutralTeamColor;
+    if (allowedTeam == TEAM.BAD)
+      NameTextObject.color = badTeamColor;
+    if (allowedTeam == TEAM.GOOD)
+      NameTextObject.color = goodTeamColor;
   }
 
   public void SetCommandWeight(int activePlayerCount)
