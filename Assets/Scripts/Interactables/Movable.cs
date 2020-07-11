@@ -10,7 +10,6 @@ namespace Assets.Scripts.Interactables
 {
     public class Movable : TurnAroundOnCollisionBehaviour
     {
-        public Vector2 MoveDirection = new Vector2(1, 1);
         public Vector2 TargetPosition;
         public float Speed = 3f;
 
@@ -18,20 +17,28 @@ namespace Assets.Scripts.Interactables
 
         protected new void Start()
         {
-            commands.Add("up", new Command(Up));
-            commands.Add("down", new Command(Down));
-            commands.Add("right", new Command(Right));
-            commands.Add("left", new Command(Left));
             TargetPosition = transform.position;
-            InteractableManager.instance.Register(this);
+
+            identifier = "M";
+            commands.Add("Up", new Command(Up));
+            commands.Add("Down", new Command(Down));
+            commands.Add("Right", new Command(Right));
+            commands.Add("Left", new Command(Left));
+            base.Start();
         }
 
         private void Update()
         {
-            if (transform.position.x <= TargetPosition.x && transform.position.y <= TargetPosition.y)
+            //if (transform.position.x <= TargetPosition.x && transform.position.y <= TargetPosition.y)
                 t = t < 1 ? Speed * Time.deltaTime : 1;
 
             transform.position = Vector3.Lerp(transform.position, TargetPosition, t);
+
+            if (Input.GetKeyDown("a"))
+                Left("");
+            if (Input.GetKeyDown("s"))
+                Right("");
+
         }
 
         //TODO: probably make sure that the thing doesn't collide with other things
@@ -48,7 +55,7 @@ namespace Assets.Scripts.Interactables
         private void Right(string message)
         {
             TargetPosition.x += commandWeight;
-            t = 0;
+           t = 0;
         }
         private void Left(string message)
         {

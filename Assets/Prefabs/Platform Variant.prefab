@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &305458359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2569361551843232127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf54b4b176b67614cb2a66f95d6e204b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameTextObject: {fileID: 0}
+  identifier: X
+  reactivationCooldown: 0
+  activeDuration: 0
+  allowedTeam: 2
+  activationThreshold: 1
+  commandWeight: 1
+  TargetPosition: {x: 0, y: 0}
+  Speed: 3
+--- !u!1001 &4328277140859602942
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2285882026219851392, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851393, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_Name
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851394, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.004650593
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851394, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851394, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.9979496
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851395, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851395, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851395, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851395, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851395, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851395, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851395, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851395, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851395, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851395, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285882026219851395, guid: 529258998adb3e64c9a831e5b1001c29,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 529258998adb3e64c9a831e5b1001c29, type: 3}
+--- !u!1 &2569361551843232127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2285882026219851393, guid: 529258998adb3e64c9a831e5b1001c29,
+    type: 3}
+  m_PrefabInstance: {fileID: 4328277140859602942}
+  m_PrefabAsset: {fileID: 0}

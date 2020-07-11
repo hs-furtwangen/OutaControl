@@ -11,7 +11,18 @@ public class Character : MonoBehaviour
     public int Health = 5;
     public float InvulnerabilityDuration = 5.0f;
     public float ForwardSpeed = 1.0f;
-    public MovingDirection ForwardDirection = MovingDirection.Right;
+
+    private MovingDirection _forwardDirection = MovingDirection.Right;
+
+    public MovingDirection ForwardDirection
+    {
+        get => _forwardDirection;
+        set
+        {
+            _forwardDirection = value;
+            GetComponent<SpriteRenderer>().flipX = _forwardDirection == MovingDirection.Left;
+        }
+    }
     public int FrameCntAfterToCheckForStuck = 5;
     public float MaxAllowedZAngleInDeg = 35.0f;
 
@@ -33,31 +44,34 @@ public class Character : MonoBehaviour
 
         // TODO: Refactor. Make it good :)
         var vec = (ForwardDirection == MovingDirection.Right ? 1.0f : -1.0f) * ForwardSpeed * Time.deltaTime;
-        transform.position += Vector3.left * vec;
+        transform.position += Vector3.right * vec;
 
-        ++positionCheckCnt;
+        //++positionCheckCnt;
 
-        // check every x frames (user set) if we kept moving, if not jump
-        if ((positionCheckCnt * Time.deltaTime) > FrameCntAfterToCheckForStuck)
-        {
-            if (transform.position.x - lastPosition.x < ForwardSpeed * 5f)
-            {
-                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400f);
-            }
+        //// check every x frames (user set) if we kept moving, if not jump
+        //if ((positionCheckCnt * Time.deltaTime) > FrameCntAfterToCheckForStuck)
+        //{
+        //    if (transform.position.x - lastPosition.x < ForwardSpeed * 5f)
+        //    {
+        //        GetComponent<Rigidbody2D>().AddForce(Vector2.up * 400f);
+        //    }
 
-            lastPosition = transform.position;
-            positionCheckCnt = 0;
-        }
+        //    lastPosition = transform.position;
+        //    positionCheckCnt = 0;
+        //}
 
         //update invulnerability value
-        if (invulnerabilityCooldown <= 0) {
+        if (invulnerabilityCooldown <= 0)
+        {
             invulnerabilityCooldown -= Time.deltaTime;
         }
 
     }
-    public void DealDamage(int amount) {
+    public void DealDamage(int amount)
+    {
         //check invulnerability
-        if (invulnerabilityCooldown <= 0) {
+        if (invulnerabilityCooldown <= 0)
+        {
             Health -= amount;
             invulnerabilityCooldown = InvulnerabilityDuration;
             //TODO CHECKPOINT IF DEAD
