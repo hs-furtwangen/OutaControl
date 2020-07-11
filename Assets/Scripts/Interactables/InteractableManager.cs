@@ -44,8 +44,9 @@ public class InteractableManager
     }
   }
 
-  public void DistributeCommand(string objectID, string command, string args = "")
+  public void DistributeCommand(string objectID, Cmd command, string args = "")
   {
+    //TODO: check that only the permitted team can do the command
     if (!interactables.ContainsKey(objectID)) return;
     interactables[objectID].DoCommand(command, args);
   }

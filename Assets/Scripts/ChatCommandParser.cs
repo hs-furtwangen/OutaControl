@@ -120,4 +120,6 @@ public enum Cmd
     down,
     left,
     right,
+    arm,
+    disarm,
 }

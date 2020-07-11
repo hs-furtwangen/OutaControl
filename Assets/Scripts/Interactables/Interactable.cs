@@ -19,10 +19,10 @@ public abstract class Interactable : MonoBehaviour
   public float reactivationCooldown = 0;
   public float activeDuration = 0;
   public TEAM allowedTeam = TEAM.BOTH;
-  public int activationThreshold = 1;
+  public float activationThreshold = 1;
   public float commandWeight = 1.0f;
   private string fullIdentifier = "";
-  protected Dictionary<string, Command> commands = new Dictionary<string, Command>();
+  protected Dictionary<Cmd, Command> commands = new Dictionary<Cmd, Command>();
   protected float currentReactivationCooldown = 0.0f;
   protected float currentlyActiveCooldown = 0.0f;
   protected void Start()
@@ -56,7 +56,7 @@ public abstract class Interactable : MonoBehaviour
     commandWeight = 10.0f / activePlayerCount;
   }
 
-  public void DoCommand(string action, string message = "")
+  public void DoCommand(Cmd action, string message = "")
   {
     if (commands.ContainsKey(action))
     {

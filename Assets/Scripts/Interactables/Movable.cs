@@ -17,6 +17,10 @@ namespace Assets.Scripts.Interactables
 
         protected new void Start()
         {
+            commands.Add(Cmd.up, new Command(Up));
+            commands.Add(Cmd.down, new Command(Down));
+            commands.Add(Cmd.right, new Command(Right));
+            commands.Add(Cmd.left, new Command(Left));
             TargetPosition = transform.position;
 
             identifier = "M";
