@@ -1,8 +1,35 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using TwitchLib.Client.Models;
+using UnityEngine;
 
-public static class ChatCommandParser
+public class ChatCommandParser
 {
-    public static void Parse(string name, string msg)
+    private static ChatCommandParser _instance;
+
+    public static ChatCommandParser Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new ChatCommandParser();
+            }
+            return _instance;
+        }
+    }
+
+    private List<string> _joinedPlayers;
+    private List<string> _goodPlayser;
+    private List<string> _evilPlayers;
+
+    public ChatCommandParser()
+    {
+        _joinedPlayers = new List<string>();
+        _goodPlayser = new List<string>();
+        _evilPlayers = new List<string>();
+    }
+
+    public void Parse(string name, string msg)
     {
         var commands = msg.ToLower().Substring(1).Split();
 
@@ -24,6 +51,9 @@ public static class ChatCommandParser
                 break;
 
             case MsgCmd.join:
+                //Check Gamestate for preparing
+                if (!_joinedPlayers.Contains(name))
+                    _joinedPlayers.Add(name);
                 break;
 
             case MsgCmd.pause:

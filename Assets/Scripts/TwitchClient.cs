@@ -3,15 +3,11 @@ using TwitchLib.Unity;
 using TwitchLib.Client.Models;
 using TwitchLib.Client.Events;
 using TwitchLib.Api.Models.v5.Users;
-using TwitchLib.Api.Models.v5.Chat;
 using System.Collections;
-using System.Collections.Generic;
 
 public class TwitchClient : MonoBehaviour
 {
     private Client client;
-
-    public string channelname;
 
     [ReadOnly]
     public string channelid;
@@ -21,7 +17,7 @@ public class TwitchClient : MonoBehaviour
     {
         Application.runInBackground = true;
 
-        ConnectionCredentials credentials = new ConnectionCredentials(TwitchSecrets.USERNAME, TwitchSecrets.ACCESS_TOKEN);
+        ConnectionCredentials credentials = new ConnectionCredentials(Config.TwitchUsername, Config.TwitchAccessToke);
 
         client = new Client();
         client.Initialize(credentials);
@@ -57,8 +53,8 @@ public class TwitchClient : MonoBehaviour
 
     private void OnConnected(object sender, OnConnectedArgs e)
     {
-        if (channelname != "")
-            client.JoinChannel(channelname);
+        if (Config.TwitchChannel != "")
+            client.JoinChannel(Config.TwitchChannel);
     }
 
     private void OnConnectionError(object sender, OnConnectionErrorArgs e)
@@ -77,7 +73,7 @@ public class TwitchClient : MonoBehaviour
 
         if (e.ChatMessage.Message.Trim()[0] == '!')
         {
-            ChatCommandParser.Parse(e.ChatMessage.DisplayName, e.ChatMessage.Message);
+            ChatCommandParser.Instance.Parse(e.ChatMessage.DisplayName, e.ChatMessage.Message);
         }
     }
     void OnMessageSent(object sender, OnMessageSentArgs e)
@@ -106,7 +102,7 @@ public class TwitchClient : MonoBehaviour
         api.Settings.AccessToken = TwitchSecrets.ACCESS_TOKEN;
         api.Settings.ClientId = TwitchSecrets.CLIENT_ID;
 
-        yield return api.InvokeAsync(api.Users.v5.GetUserByNameAsync(channelname), UserResolveCallback);
+        yield return api.InvokeAsync(api.Users.v5.GetUserByNameAsync(Config.TwitchChannel), UserResolveCallback);
     }
 
     private void UserResolveCallback(Users obj)
