@@ -80,10 +80,6 @@ public class ChatCommandParser
             {
                 team = TEAM.BAD;
             }
-            else
-            {
-                return;
-            }
         }
 
         switch (cmd)
@@ -91,11 +87,14 @@ public class ChatCommandParser
             case MsgCmd.move:
                 if (GameLogic.State == GameState.Playing)
                 {
-                    var subcmd = Cmd.none;
-                    if (!(System.Enum.TryParse(commands[0], out subcmd)))
+                    if (team == TEAM.BOTH)
                         return;
 
-                    InteractableManager.instance.DistributeCommand(subcmd, commands[1], team);
+                    var subcmd = Cmd.none;
+                    if (!(System.Enum.TryParse(commands[2], out subcmd)))
+                        return;
+
+                    InteractableManager.instance.DistributeCommand(subcmd, commands[1].ToUpper(), team);
                 }
                 break;
 

@@ -4,6 +4,6 @@
     public static string TwitchAccessToke;
     public static string TwitchChannel;
 
-    public static int MaxPlayers;
+    public static int MaxPlayers = 50;
 
 }
