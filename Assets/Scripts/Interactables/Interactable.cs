@@ -40,7 +40,6 @@ public abstract class Interactable : MonoBehaviour
   {
     this.fullIdentifier = name;
     NameTextObject.text = name;
-
   }
 
   public void SetCommandWeight(int activePlayerCount)

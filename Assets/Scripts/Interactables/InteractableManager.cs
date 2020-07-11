@@ -16,15 +16,24 @@ public class InteractableManager
       foundAmount = intIndex[it.identifier];
       foundAmount++;
       intIndex[it.identifier]++;
+      if (foundAmount == 2)
+      {
+        Interactable i = interactables[it.identifier];
+        interactables.Remove(i.identifier);
+        interactables.Add(i.identifier + "1", i);
+        i.SetName(i.identifier + "1");
+      }
+      string newName = it.identifier + foundAmount.ToString();
+      interactables.Add(newName, it);
+      it.SetName(newName);
     }
     else
     {
       foundAmount = 1;
       intIndex.Add(it.identifier, foundAmount);
+      interactables.Add(it.identifier, it);
+      it.SetName(it.identifier);
     }
-    string newName = it.identifier + foundAmount.ToString();
-    interactables.Add(newName, it);
-    it.SetName(newName);
   }
 
   public void StartGame(int amountPlayers)
@@ -35,8 +44,9 @@ public class InteractableManager
     }
   }
 
-  public void DistributeCommand(string objectID, string command, string args = ""){
-    if(!interactables.ContainsKey(objectID)) return;
+  public void DistributeCommand(string objectID, string command, string args = "")
+  {
+    if (!interactables.ContainsKey(objectID)) return;
     interactables[objectID].DoCommand(command, args);
   }
 }
