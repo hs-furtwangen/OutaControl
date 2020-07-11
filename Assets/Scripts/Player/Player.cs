@@ -13,6 +13,7 @@ public enum MovingDirection
 public class Player : MonoBehaviour
 {
     public int Health = 5;
+    public float InvulnerabilityDuration = 5.0f;
     public float ForwardSpeed = 1.0f;
     public MovingDirection ForwardDirection = MovingDirection.Right;
     public int FrameCntAfterToCheckForStuck = 5;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
 
     private Vector3 lastPosition;
     private int positionCheckCnt;
+    private float invulnerabilityCooldown = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +47,20 @@ public class Player : MonoBehaviour
 
             lastPosition = transform.position;
             positionCheckCnt = 0;
+        }
+
+        //update invulnerability value
+        if (invulnerabilityCooldown <= 0) {
+            invulnerabilityCooldown -= Time.deltaTime;
+        }
+
+    }
+    public void DealDamage(int amount) {
+        //check invulnerability
+        if (invulnerabilityCooldown <= 0) {
+            Health -= amount;
+            invulnerabilityCooldown = InvulnerabilityDuration;
+            //TODO CHECKPOINT IF DEAD
         }
     }
 }
