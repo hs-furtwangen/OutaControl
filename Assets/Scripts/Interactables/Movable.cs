@@ -16,14 +16,14 @@ namespace Assets.Scripts.Interactables
 
         private float t = 0;
 
-        private new void Start()
+        protected new void Start()
         {
-            identifier = "M";
             commands.Add("up", new Command(Up));
             commands.Add("down", new Command(Down));
             commands.Add("right", new Command(Right));
             commands.Add("left", new Command(Left));
             TargetPosition = transform.position;
+            InteractableManager.instance.Register(this);
         }
 
         private void Update()
