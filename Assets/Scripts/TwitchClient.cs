@@ -4,6 +4,8 @@ using TwitchLib.Client.Models;
 using TwitchLib.Client.Events;
 using TwitchLib.Api.Models.v5.Users;
 using System.Collections;
+using TwitchLib.Api.Models.Helix.Games.GetGames;
+using System;
 
 public class TwitchClient : MonoBehaviour
 {
@@ -37,6 +39,25 @@ public class TwitchClient : MonoBehaviour
         yield return StartCoroutine(ResolveIds());
 
         client.Connect();
+
+        GameLogic.PreperationStateTriggered += OnPreparationStart;
+        GameLogic.PlayingStateTriggered += OnPlayStart;
+        GameLogic.GameOverStateTriggered += OnGameOver;
+    }
+
+    private void OnPreparationStart(object sender, EventArgs e)
+    {
+        client.SendMessage(client.JoinedChannels[0], "### Preparation phase has started, please type \"!join\" if you want to play. ###");
+    }
+
+    private void OnPlayStart(object sender, EventArgs e)
+    {
+        client.SendMessage(client.JoinedChannels[0], "### Preparation phase is over, here we gooooo! ###");
+    }
+
+    private void OnGameOver(object sender, EventArgs e)
+    {
+        client.SendMessage(client.JoinedChannels[0], "### Game is over :(, ask your fellow streamer for another round if you liked it, also nothing broke so far yay! ###");
     }
 
     // Update is called once per frame
@@ -48,6 +69,19 @@ public class TwitchClient : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             client.SendMessage(client.JoinedChannels[0], "viking64Friendo");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            GameLogic.State = GameState.Perperation;
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            GameLogic.State = GameState.Playing;
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            GameLogic.State = GameState.GameOver;
         }
     }
 

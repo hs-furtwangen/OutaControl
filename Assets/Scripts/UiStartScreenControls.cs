@@ -19,4 +19,9 @@ public class UiStartScreenControls : MonoBehaviour
             SceneManager.LoadScene("Twitch");
         }
     }
+
+    public void OnClickTokenlink()
+    {
+        Application.OpenURL("https://twitchtokengenerator.com/");
+    }
 }

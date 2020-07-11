@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using TwitchLib.Api.Models.Helix.Games.GetGames;
 using TwitchLib.Client.Models;
+using UnityEditor;
 using UnityEngine;
 
 public class ChatCommandParser
@@ -19,14 +22,36 @@ public class ChatCommandParser
     }
 
     private List<string> _joinedPlayers;
-    private List<string> _goodPlayser;
+    private List<string> _goodPlayers;
     private List<string> _evilPlayers;
 
     public ChatCommandParser()
     {
-        _joinedPlayers = new List<string>();
-        _goodPlayser = new List<string>();
-        _evilPlayers = new List<string>();
+        _joinedPlayers = new List<string>(Config.MaxPlayers);
+        _goodPlayers = new List<string>((int)Math.Ceiling(Config.MaxPlayers / 2f));
+        _evilPlayers = new List<string>((int)Math.Floor(Config.MaxPlayers / 2f));
+
+        GameLogic.PreperationStateTriggered += OnPreparationStart;
+        GameLogic.PlayingStateTriggered += OnPlayStart;
+        GameLogic.GameOverStateTriggered += OnGameOver;
+    }
+
+    private void OnPreparationStart(object sender, EventArgs e)
+    {
+        _joinedPlayers.Clear();
+        _goodPlayers.Clear();
+        _evilPlayers.Clear();
+    }
+
+    private void OnPlayStart(object sender, EventArgs e)
+    {
+        _joinedPlayers.Shuffle();
+        (_goodPlayers, _evilPlayers) = _joinedPlayers.SplitInHalf();
+    }
+
+    private void OnGameOver(object sender, EventArgs e)
+    {
+        
     }
 
     public void Parse(string name, string msg)
@@ -41,28 +66,40 @@ public class ChatCommandParser
         if (!(System.Enum.TryParse(commands[0], out cmd)))
             return;
 
-
         switch (cmd)
         {
             case MsgCmd.move:
+                if (GameLogic.State == GameState.Playing)
+                {
+
+                }
                 break;
 
             case MsgCmd.activate:
+                if (GameLogic.State == GameState.Playing)
+                {
+
+                }
                 break;
 
             case MsgCmd.join:
-                //Check Gamestate for preparing
-                if (!_joinedPlayers.Contains(name))
+                if (GameLogic.State == GameState.Perperation && !_joinedPlayers.Contains(name) && _joinedPlayers.Count < Config.MaxPlayers)
+                {
                     _joinedPlayers.Add(name);
+                    Debug.Log($"{name} joined");
+                }
                 break;
 
             case MsgCmd.pause:
+                if (GameLogic.State == GameState.Playing)
+                {
+
+                }
                 break;
 
             case MsgCmd.help:
                 break;
         }
-
     }
 }
 

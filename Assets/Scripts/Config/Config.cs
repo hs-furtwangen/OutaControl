@@ -3,4 +3,7 @@
     public static string TwitchUsername;
     public static string TwitchAccessToke;
     public static string TwitchChannel;
+
+    public static int MaxPlayers;
+
 }
