@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class ConveyorBelt : MonoBehaviour
+public class ConveyorBelt : Interactable
 {
     public float Speed = 2;
 
@@ -13,12 +13,12 @@ public class ConveyorBelt : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (enteredOnce) return;
+            //if (enteredOnce) return;
 
-            enteredOnce = true;
+            //enteredOnce = true;
 
             var player = collision.gameObject.GetComponent<Player>();
-            player.ForwardSpeed *= player.ForwardDirection == MovingDirection.Left ? Speed : 1f/Speed; 
+            player.ForwardSpeed *= player.ForwardDirection == MovingDirection.Left ? Speed : 1f / Speed; 
         }
 
     }
@@ -27,7 +27,7 @@ public class ConveyorBelt : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            enteredOnce = false;
+           // enteredOnce = false;
             var player = collision.gameObject.GetComponent<Player>();
             player.ForwardSpeed /= player.ForwardDirection == MovingDirection.Left ? Speed : 1f / Speed;
         }

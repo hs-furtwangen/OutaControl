@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trampoline : MonoBehaviour
+public class Trampoline : Interactable
 {
     public float JumpForce = 2f;
 

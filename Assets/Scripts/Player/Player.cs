@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
+﻿using UnityEngine;
 
 public enum MovingDirection
 {
@@ -32,6 +28,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // TODO: Refactor. Make it good :)
         var vec = (ForwardDirection == MovingDirection.Right ? 1.0f : -1.0f) * ForwardSpeed * Time.deltaTime;
         transform.position += Vector3.left * vec;
 
