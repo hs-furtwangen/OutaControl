@@ -18,10 +18,10 @@ public class Platform : Interactable
   void Update()
   {
     // Update position
-    // float x = Mathf.Lerp(this.transform.position.x, this.targetPosition.x, Time.deltaTime);
+    float x = Mathf.Lerp(this.transform.position.x, this.targetPosition.x, Time.deltaTime);
     float y = Mathf.Lerp(this.transform.position.y, this.targetPosition.y, Time.deltaTime);
     // float z = Mathf.Lerp(this.transform.position.z, this.targetPosition.z, Time.deltaTime);
-    this.transform.position = new Vector3(this.transform.position.x, y, this.transform.position.z);
+    transform.position = new Vector3(transform.position.x, y, transform.position.z);
   }
 
 

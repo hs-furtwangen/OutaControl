@@ -6,7 +6,7 @@ public enum MovingDirection
     Left
 }
 
-public class Player : MonoBehaviour
+public class Character : MonoBehaviour
 {
     public int Health = 5;
     public float InvulnerabilityDuration = 5.0f;
@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Health <= 0)
+            GameLogic.State = GameState.GameOver;
 
         // TODO: Refactor. Make it good :)
         var vec = (ForwardDirection == MovingDirection.Right ? 1.0f : -1.0f) * ForwardSpeed * Time.deltaTime;

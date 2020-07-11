@@ -8,7 +8,7 @@ public class DamagingObject : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
-            collision.gameObject.GetComponent<Player>().DealDamage(damageAmount);
+            collision.gameObject.GetComponent<Character>().DealDamage(damageAmount);
         }
     }
 }

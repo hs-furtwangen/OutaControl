@@ -252,9 +252,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameTextObject: {fileID: 1784131116}
   identifier: 88
-  activationCooldown: 0
+  reactivationCooldown: 0
   activeDuration: 0
   allowedTeam: 2
+  activationThreshold: 1
+  commandWeight: 1
 --- !u!212 &175349735
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -574,9 +576,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameTextObject: {fileID: 1619361744}
   identifier: 88
-  activationCooldown: 0
+  reactivationCooldown: 0
   activeDuration: 0
   allowedTeam: 2
+  activationThreshold: 1
+  commandWeight: 1
 --- !u!212 &1463957945
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1267,9 +1271,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameTextObject: {fileID: 983051359}
   identifier: 88
-  activationCooldown: 0
+  reactivationCooldown: 0
   activeDuration: 0
   allowedTeam: 2
+  activationThreshold: 1
+  commandWeight: 1
 --- !u!212 &2104268224
 SpriteRenderer:
   m_ObjectHideFlags: 0
