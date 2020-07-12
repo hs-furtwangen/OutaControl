@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1552343881494123127, guid: 2835d90f9f2f43f47a1e277408b21bf0,
+  m_Sprite: {fileID: 4665208324050091490, guid: fa574c0b2802ec44f9e9a408d4741952,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   reactivationCooldown: 0
   activeDuration: 0
   allowedTeam: 2
-  activationThreshold: 1
   commandWeight: 1
-  JumpForce: 2
+  TargetPosition: {x: 0, y: 0}
+  Speed: 3
+  JumpForce: {x: 0.005, y: 0.5}
