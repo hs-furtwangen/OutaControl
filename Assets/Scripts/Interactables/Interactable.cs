@@ -19,7 +19,6 @@ public abstract class Interactable : MonoBehaviour
   public float reactivationCooldown = 0;
   public float activeDuration = 0;
   public TEAM allowedTeam = TEAM.BOTH;
-  public float activationThreshold = 1;
   public float commandWeight = 1.0f;
   private string fullIdentifier = "";
   protected Dictionary<Cmd, Command> commands = new Dictionary<Cmd, Command>();
