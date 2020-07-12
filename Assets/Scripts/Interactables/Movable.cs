@@ -20,7 +20,7 @@ namespace Assets.Scripts.Interactables
             base.Start();
         }
 
-        private void Update()
+        protected void Update()
         {
             t += t < 1 ? Speed * Time.deltaTime : 1;
 
