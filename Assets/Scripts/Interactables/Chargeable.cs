@@ -6,6 +6,7 @@ public abstract class Chargeable : Interactable
 {
   public int Damage = 0;
   public LineRenderer ProgressBar;
+  public float ActivationThreshold = 5f;
   protected float currentArmedStatus = 0.0f;
   protected new void Start()
   {
@@ -13,7 +14,6 @@ public abstract class Chargeable : Interactable
     commands.Add(Cmd.disarm, new Command(Disarm));
     InteractableManager.instance.Register(this);
     updateProgress(0);
-    SetCommandWeight(10);
     ProgressBar.startColor = Color.green;
     ProgressBar.endColor = Color.green;
   }
@@ -70,7 +70,7 @@ public abstract class Chargeable : Interactable
   }
   private void updateProgress(int sign)
   {
-    currentArmedStatus += sign * commandWeight;
+    currentArmedStatus += (sign * commandWeight) / ActivationThreshold;
     Mathf.Clamp(currentArmedStatus, 0, 2);
     ProgressBar.SetPosition(1, Vector3.up * currentArmedStatus);
   }

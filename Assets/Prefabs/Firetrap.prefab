@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764927872297594163}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.53, y: -0.6300001, z: 0}
+  m_LocalPosition: {x: -0.53, y: -0.6300001, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1764927873938839576}
@@ -492,6 +492,7 @@ MonoBehaviour:
   commandWeight: 1
   Damage: 1
   ProgressBar: {fileID: 1764927874110925140}
+  ActivationThreshold: 5
   Flame: {fileID: 1764927874023502363}
 --- !u!212 &1764927873938839579
 SpriteRenderer:
