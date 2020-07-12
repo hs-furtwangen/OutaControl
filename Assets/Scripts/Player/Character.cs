@@ -184,7 +184,7 @@ public class Character : MonoBehaviour
     {
         t += t < 1 ? 3.0f * Time.deltaTime : 1;
 
-        if (transform.rotation.eulerAngles.z > 35.0f)
+        if (transform.rotation.eulerAngles.z > MaxAllowedZAngleInDeg)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, t);
         }
