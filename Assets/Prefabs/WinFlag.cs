@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class WinFlag : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.gameObject.CompareTag("Player")) {
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Player"))
+        {
             GameLogic.WinningTeam = TEAM.GOOD;
             GameLogic.State = GameState.GameOver;
         }
     }
+}

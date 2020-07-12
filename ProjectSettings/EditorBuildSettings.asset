@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestEverything.unity
     guid: 7af836d9a0ae8e946ae53477fdca40b0
+  - enabled: 1
+    path: Assets/Scenes/LevelLukas.unity
+    guid: 1a2b9b8a2d20eec4582d40949e55cf23
   m_configObjects: {}

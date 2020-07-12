@@ -47,6 +47,7 @@ public class GameLogic : MonoBehaviour
                     break;
                 case GameState.GameOver:
                     GameOverStateTriggered?.Invoke(null, EventArgs.Empty);
+                    SceneManager.LoadScene("GameOver");
                     break;
             }
         }
@@ -58,10 +59,7 @@ public class GameLogic : MonoBehaviour
         PlayingStateTriggered += (s, e) => Debug.Log("PlayingStateTriggered");
         GameOverStateTriggered += (s, e) => Debug.Log("GameOverStateTriggered");
 
-        GameOverStateTriggered += (s, e) =>
-        {
-            SceneManager.LoadScene("GameOver");
-        };
+    
     }
 
     private void Update()
