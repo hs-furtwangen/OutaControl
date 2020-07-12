@@ -25,34 +25,28 @@ namespace Assets.Scripts.Interactables
             t += t < 1 ? Speed * Time.deltaTime : 1;
 
             transform.position = Vector3.Lerp(transform.position, TargetPosition, t);
-
-            if (Input.GetKeyDown("a"))
-                Left("");
-            if (Input.GetKeyDown("s"))
-                Right("");
-
         }
 
         //TODO: probably make sure that the thing doesn't collide with other things
         private void Up(string message)
         {
             TargetPosition.y += commandWeight;
-            t = 0;
+            //t = 0;
         }
         private void Down(string message)
         {
             TargetPosition.y -= commandWeight;
-            t = 0;
+            //t = 0;
         }
         private void Right(string message)
         {
             TargetPosition.x += commandWeight;
-            t = 0;
+            //t = 0;
         }
         private void Left(string message)
         {
             TargetPosition.x -= commandWeight;
-            t = 0;
+            //t = 0;
         }
     }
 }

@@ -34,7 +34,13 @@ public class ConveyorBelt : Movable
     private Rigidbody2D rigidBody;
     private bool entered;
 
+    private new void Start()
+    {
+        InteractableManager.instance.Register(this);
 
+        commands.Add(Cmd.right, new Command(Right));
+        commands.Add(Cmd.left, new Command(Left));
+    }
 
     private void Right(string message)
     {
