@@ -116,7 +116,14 @@ public class Character : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         Debug.Log("Reset to checkpoint called");
-        transform.position = CheckpointController.latestActivatedCheckpoint.transform.position;
+
+        animator.SetBool("IsDead", false);
+        Health = 5;
+
+        var checkpoint = CheckpointController.latestActivatedCheckpoint;
+        var pos = checkpoint.Item1.transform.position;
+        transform.position = new Vector3(pos.x, pos.y + 1.0f);
+        ForwardDirection = checkpoint.Item2;
     }
 
     public void Pause(int secondsToWait)

@@ -44,7 +44,7 @@ public class Checkpoint : MonoBehaviour
             indicator.SetTrigger("Activate");
         }
 
-        CheckpointController.activateCheckpoint(this.gameObject);
+        CheckpointController.activateCheckpoint(this.gameObject, other.gameObject.GetComponent<Character>().ForwardDirection);
         Debug.Log($"Player reached {this.gameObject.name}");
         if(PausePlayerOnReaching) other.gameObject.GetComponent<Character>().Pause(10);
     }

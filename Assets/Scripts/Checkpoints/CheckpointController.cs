@@ -1,16 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TwitchLib.Api.Enums;
 using UnityEngine;
 
 public static class CheckpointController
 {
-    public static GameObject latestActivatedCheckpoint;
+    public static Tuple<GameObject, MovingDirection> latestActivatedCheckpoint;
 
-    public static void activateCheckpoint(GameObject checkpoint)
+    public static void activateCheckpoint(GameObject checkpoint, MovingDirection direction)
     {
-        if (latestActivatedCheckpoint != null && latestActivatedCheckpoint != checkpoint)
+        if (latestActivatedCheckpoint != null && latestActivatedCheckpoint.Item1 != checkpoint)
         {
-            var indicator = latestActivatedCheckpoint.GetComponentInChildren<Animator>();
+            var indicator = latestActivatedCheckpoint.Item1.GetComponentInChildren<Animator>();
             if (indicator != null)
             {
                 indicator.ResetTrigger("Activate");
@@ -18,6 +20,6 @@ public static class CheckpointController
             }
         }
 
-        latestActivatedCheckpoint = checkpoint;
+        latestActivatedCheckpoint = Tuple.Create(checkpoint, direction);
     }
 }
