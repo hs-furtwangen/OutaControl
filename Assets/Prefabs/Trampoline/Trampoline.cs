@@ -32,11 +32,7 @@ public class Trampoline : Movable
 
     private IEnumerator WaitForAnimationStop()
     {
-
         yield return new WaitForSeconds(0.4f);
-
-
         animator.enabled = false;
-
     }
 }
