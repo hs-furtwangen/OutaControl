@@ -21,8 +21,12 @@ public class Trampoline : MonoBehaviour
         {
             animator.enabled = true;
 
+            collision.gameObject.GetComponent<Character>().UseVelocityCap = false;
+
             var rigidBody = collision.gameObject.GetComponent<Rigidbody2D>();
             rigidBody.AddForce(JumpForce, ForceMode2D.Impulse);
+
+            collision.gameObject.GetComponent<Character>().UseVelocityCap = true;
 
             StartCoroutine(WaitForAnimationStop());
 
