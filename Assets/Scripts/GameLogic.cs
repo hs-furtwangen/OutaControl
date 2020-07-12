@@ -58,7 +58,10 @@ public class GameLogic : MonoBehaviour
         PlayingStateTriggered += (s, e) => Debug.Log("PlayingStateTriggered");
         GameOverStateTriggered += (s, e) => Debug.Log("GameOverStateTriggered");
 
-
+        GameOverStateTriggered += (s, e) =>
+        {
+            SceneManager.LoadScene("GameOver");
+        };
     }
 
     private void Update()
