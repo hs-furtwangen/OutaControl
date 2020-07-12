@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Dynamic;
 using UnityEngine;
+using TMPro;
 
 [SerializeField]
 public enum MovingDirection
@@ -43,6 +44,10 @@ public class Character : MonoBehaviour
 
   [SerializeField]
   private MovingDirection _forwardDirection = MovingDirection.Right;
+    public TextMeshProUGUI healthDisplay;
+
+    [SerializeField]
+    private MovingDirection _forwardDirection = MovingDirection.Right;
 
   [SerializeField]
   public MovingDirection ForwardDirection
@@ -70,6 +75,8 @@ public class Character : MonoBehaviour
 
     rigidBody.centerOfMass = new Vector2(0, -0.125f);
   }
+        healthDisplay.text = Health.ToString();
+
 
 
 
@@ -107,6 +114,7 @@ public class Character : MonoBehaviour
     {
       Health -= amount;
       invulnerabilityCooldown = InvulnerabilityDuration;
+      healthDisplay.text = Health.ToString(); 
       //TODO CHECKPOINT IF DEAD
     }
   }
