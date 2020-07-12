@@ -40,11 +40,13 @@ public class Character : MonoBehaviour
     public Vector2 PlayerDirection => ForwardDirection == MovingDirection.Right ? Vector3.right : Vector3.left;
 
     public float InvulnerabilityDuration = 5.0f;
-    public float ForwardSpeed = 1.0f;
+    
+    public float ForwardSpeed = 1f;
+    public float VelocityClampX = 0.35f;
 
-    public float VelocityClamp = 1.0f;
+    public float VelocityClampY = 1.0f;
 
-  [SerializeField]
+    [SerializeField]
   private MovingDirection _forwardDirection = MovingDirection.Right;
     public TextMeshProUGUI healthDisplay;
 
@@ -75,24 +77,33 @@ public class Character : MonoBehaviour
         rigidBody.centerOfMass = new Vector2(0, -0.125f);
     }
 
+    private void FixedUpdate()
+    {
+        if (IsAlive && !IsPaused)
+        {
+          
+            // clamp velocity
+            rigidBody.AddForce(PlayerDirection * ForwardSpeed, ForceMode2D.Impulse);
 
+            rigidBody.velocity = Mathf.Abs(rigidBody.velocity.x) > VelocityClampX ? new Vector2(PlayerDirection.x * VelocityClampX, rigidBody.velocity.y) : rigidBody.velocity;
+            rigidBody.velocity = Mathf.Abs(rigidBody.velocity.y) > VelocityClampY ? new Vector2(PlayerDirection.y * VelocityClampY, rigidBody.velocity.y) : rigidBody.velocity;
+
+
+            CheckAndFixHeadFirst();
+            CheckAndSetAnimationState();
+        }
+    }
 
     // Update is called once per frame
     private void Update()
     {
-        // clamp velocity
-        rigidBody.velocity = rigidBody.velocity.x > VelocityClamp ? new Vector2(VelocityClamp, rigidBody.velocity.y) : rigidBody.velocity;
+       
 
 
         if (Input.GetKeyDown("a"))
             Pause(5);
 
-        if (IsAlive && !IsPaused)
-        {
-            rigidBody.AddForce(PlayerDirection * ForwardSpeed, ForceMode2D.Impulse);
-            CheckAndFixHeadFirst();
-            CheckAndSetAnimationState();
-        }
+        
 
         //update invulnerability value
         if (invulnerabilityCooldown >= 0)
@@ -184,7 +195,12 @@ public class Character : MonoBehaviour
     {
         t += t < 1 ? 3.0f * Time.deltaTime : 1;
 
-        if (transform.rotation.eulerAngles.z > MaxAllowedZAngleInDeg)
+        if (PlayerDirection.x > 0 && transform.rotation.eulerAngles.z > MaxAllowedZAngleInDeg)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, t);
+        }
+
+        if (PlayerDirection.x < 0 && transform.rotation.eulerAngles.z < (360 - MaxAllowedZAngleInDeg))
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, t);
         }

@@ -340,7 +340,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 0.2
-  m_LinearDrag: 1
+  m_LinearDrag: 3
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 5fc3d8bc76934b94ab563e94c6ec7d6b, type: 2}
@@ -361,11 +361,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InvulnerabilityDuration: 5
-  ForwardSpeed: 0.05
-  VelocityClamp: 0.5
+  ForwardSpeed: 1
+  VelocityClampX: 0.35
+  VelocityClampY: 0.35
   _forwardDirection: 0
   healthDisplay: {fileID: 7448467812698181511}
-  MaxAllowedZAngleInDeg: 35
+  MaxAllowedZAngleInDeg: 45
 --- !u!95 &2565197445244155804
 Animator:
   serializedVersion: 3
