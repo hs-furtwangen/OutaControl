@@ -26,6 +26,8 @@ public class GameLogic : MonoBehaviour
     public static EventHandler<EventArgs> PlayingStateTriggered;
     public static EventHandler<EventArgs> GameOverStateTriggered;
 
+    public static TEAM WinningTeam;
+
     private static float gameStartTime;
 
     public static GameState State
