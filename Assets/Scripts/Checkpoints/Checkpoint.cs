@@ -11,6 +11,13 @@ public class Checkpoint : MonoBehaviour
 
     public GameObject CheckpointCam;
 
+    private Animator indicator;
+
+    private void Start()
+    {
+        indicator = GetComponentInChildren<Animator>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.isTrigger) return;
@@ -31,7 +38,13 @@ public class Checkpoint : MonoBehaviour
             }
         }
 
-        CheckpointController.activateCheckpoint(transform.position);
+        if (indicator != null)
+        {
+            indicator.ResetTrigger("Deactivate");
+            indicator.SetTrigger("Activate");
+        }
+
+        CheckpointController.activateCheckpoint(this.gameObject);
         Debug.Log($"Player reached {this.gameObject.name}");
     }
 

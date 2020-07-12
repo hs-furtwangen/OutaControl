@@ -4,9 +4,20 @@ using UnityEngine;
 
 public static class CheckpointController
 {
-  public static Vector3 latestActivatedCheckpoint;
+    public static GameObject latestActivatedCheckpoint;
 
-  public static void activateCheckpoint(Vector3 position){
-    latestActivatedCheckpoint = position;
-  }
+    public static void activateCheckpoint(GameObject checkpoint)
+    {
+        if (latestActivatedCheckpoint != null && latestActivatedCheckpoint != checkpoint)
+        {
+            var indicator = latestActivatedCheckpoint.GetComponentInChildren<Animator>();
+            if (indicator != null)
+            {
+                indicator.ResetTrigger("Activate");
+                indicator.SetTrigger("Deactivate");
+            }
+        }
+
+        latestActivatedCheckpoint = checkpoint;
+    }
 }
