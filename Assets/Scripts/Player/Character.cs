@@ -12,6 +12,7 @@ public enum MovingDirection
 
 public class Character : MonoBehaviour
 {
+    [SerializeField]
     private int _health = 5;
     private float pauseCooldown = 0;
 
@@ -45,6 +46,8 @@ public class Character : MonoBehaviour
     public float VelocityClampX = 0.35f;
 
     public float VelocityClampY = 1.0f;
+
+
 
     [SerializeField]
   private MovingDirection _forwardDirection = MovingDirection.Right;
