@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 3021177144979290825}
   - component: {fileID: 3021177144979290824}
   - component: {fileID: 3021177144979290827}
+  - component: {fileID: 1399644146471605737}
   m_Layer: 0
   m_Name: Saw
   m_TagString: Untagged
@@ -220,10 +221,25 @@ MonoBehaviour:
   reactivationCooldown: 0
   activeDuration: 0
   allowedTeam: 1
-  activationThreshold: 1
   commandWeight: 1
   TargetPosition: {x: 0, y: 0}
   Speed: 3
+--- !u!58 &1399644146471605737
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3021177144979290826}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!1 &3021177145924518295
 GameObject:
   m_ObjectHideFlags: 0
