@@ -64,6 +64,7 @@ public class ChatCommandParser : MonoBehaviour
         (_goodPlayers, _evilPlayers) = _joinedPlayers.SplitInHalf();
 
         Config.PlayerCount = _joinedPlayers.Count;
+        InteractableManager.instance.StartGame(Config.PlayerCount);
     }
 
     private void OnGameOver(object sender, EventArgs e)
