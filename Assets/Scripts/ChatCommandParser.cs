@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using TwitchLib.Api.Models.Helix.Games.GetGames;
-using TwitchLib.Api.Models.v5.Teams;
-using TwitchLib.Client.Models;
-using UnityEditor;
+using System.Linq;
+using TwitchLib.Unity;
 using UnityEngine;
-using UnityEngine.XR.WSA.Input;
+using UnityEngine.Video;
 
-public class ChatCommandParser
+public class ChatCommandParser : MonoBehaviour
 {
     private static ChatCommandParser _instance;
+
+    private float _helpCooldown;
+    private float _helpTimer;
+
+    private Dictionary<string, Dictionary<Cmd, float>> _playerTimers;
+
+    public Client twitchClient;
 
     public static ChatCommandParser Instance
     {
@@ -33,9 +38,25 @@ public class ChatCommandParser
         _goodPlayers = new List<string>((int)Math.Ceiling(Config.MaxPlayers / 2f));
         _evilPlayers = new List<string>((int)Math.Floor(Config.MaxPlayers / 2f));
 
+        _playerTimers = new Dictionary<string, Dictionary<Cmd, float>>();
+
         GameLogic.PreperationStateTriggered += OnPreparationStart;
         GameLogic.PlayingStateTriggered += OnPlayStart;
         GameLogic.GameOverStateTriggered += OnGameOver;
+    }
+
+    private void Update()
+    {
+        if (_helpTimer > 0)
+            _helpTimer -= Time.deltaTime;
+
+        foreach (var playerKey in _playerTimers.Keys.ToList())
+        {
+            foreach (var cmdKey in _playerTimers[playerKey].Keys.ToList())
+            {
+                _playerTimers[playerKey][cmdKey] -= Time.deltaTime;
+            }
+        }
     }
 
     private void OnPreparationStart(object sender, EventArgs e)
@@ -49,6 +70,8 @@ public class ChatCommandParser
     {
         _joinedPlayers.Shuffle();
         (_goodPlayers, _evilPlayers) = _joinedPlayers.SplitInHalf();
+
+        Config.PlayerCount = _joinedPlayers.Count;
     }
 
     private void OnGameOver(object sender, EventArgs e)
@@ -90,18 +113,46 @@ public class ChatCommandParser
                     if (team == TEAM.BOTH)
                         return;
 
-                    var subcmd = Cmd.none;
-                    if (!(System.Enum.TryParse(commands[2], out subcmd)))
+                    Cmd subcmd;
+                    if (!(Enum.TryParse(commands[2], out subcmd)))
                         return;
+
+                    if (IsPlayerBlockedByCooldown(name, subcmd))
+                        return;
+
+                    SetPlayerCmdCooldown(name, subcmd);
 
                     InteractableManager.instance.DistributeCommand(subcmd, commands[1].ToUpper(), team);
                 }
                 break;
 
-            case MsgCmd.activate:
+            case MsgCmd.arm:
                 if (GameLogic.State == GameState.Playing)
                 {
+                    if (team == TEAM.GOOD)
+                        return;
 
+                    if (IsPlayerBlockedByCooldown(name, Cmd.arm))
+                        return;
+
+                    SetPlayerCmdCooldown(name, Cmd.arm);
+
+                    InteractableManager.instance.DistributeCommand(Cmd.arm, commands[1].ToUpper(), team);
+                }
+                break;
+
+            case MsgCmd.disarm:
+                if (GameLogic.State == GameState.Playing)
+                {
+                    if (team == TEAM.BOTH)
+                        return;
+
+                    if (IsPlayerBlockedByCooldown(name, Cmd.disarm))
+                        return;
+
+                    SetPlayerCmdCooldown(name, Cmd.disarm);
+
+                    InteractableManager.instance.DistributeCommand(Cmd.disarm, commands[1].ToUpper(), team);
                 }
                 break;
 
@@ -116,25 +167,85 @@ public class ChatCommandParser
             case MsgCmd.pause:
                 if (GameLogic.State == GameState.Playing)
                 {
+                    if (team != TEAM.GOOD)
+                        return;
 
+                    if (IsPlayerBlockedByCooldown(name, Cmd.pause))
+                        return;
+
+                    SetPlayerCmdCooldown(name, Cmd.pause);
+
+                    InteractableManager.instance.DistributeCommand(Cmd.pause, "", team);
                 }
                 break;
 
             case MsgCmd.help:
+                if (_helpTimer <= 0)
+                {
+                    _helpTimer = _helpCooldown;
+                    twitchClient.SendMessage(twitchClient.JoinedChannels[0], "This should be helpful huh?");
+                }
                 break;
         }
     }
+
+    private bool IsPlayerBlockedByCooldown(string playername, Cmd cmd)
+    {
+        Dictionary<Cmd, float> cmdtimer;
+
+        //player doesn't exist in dict so it is their first cmd
+        if (!_playerTimers.TryGetValue(playername, out cmdtimer))
+            return true;
+
+        float timer;
+
+        //player did not yet issue this command so there is no cooldown
+        if (!cmdtimer.TryGetValue(cmd, out timer))
+            return true;
+
+        //the cooldown ran out for this player-cmd
+        if (timer <= 0)
+            return true;
+
+        return false;
+    }
+
+    private void SetPlayerCmdCooldown(string playername, Cmd cmd)
+    {
+        if (!Config.CmdCooldown.ContainsKey(cmd))
+            return;
+
+        if (_playerTimers.ContainsKey(playername))
+        {
+            if (_playerTimers[playername].ContainsKey(cmd))
+            {
+                _playerTimers[playername][cmd] = Config.CmdCooldown[cmd];
+            }
+            else
+            {
+                _playerTimers[playername].Add(cmd, Config.CmdCooldown[cmd]);
+            }
+        }
+        else
+        {
+            var dict = new Dictionary<Cmd, float>();
+            dict.Add(cmd, Config.CmdCooldown[cmd]);
+            _playerTimers.Add(playername, dict);
+        }
+    }
+
+    private enum MsgCmd
+    {
+        none = -1,
+        move,
+        arm,
+        disarm,
+        pause,
+        help,
+        join
+    }
 }
 
-public enum MsgCmd
-{
-    none = -1,
-    move,
-    activate,
-    pause,
-    help,
-    join
-}
 
 public enum Cmd
 {
@@ -145,4 +256,5 @@ public enum Cmd
     right,
     arm,
     disarm,
+    pause
 }
