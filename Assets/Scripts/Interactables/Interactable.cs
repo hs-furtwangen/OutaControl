@@ -52,7 +52,7 @@ public abstract class Interactable : MonoBehaviour
 
   public void SetCommandWeight(int activePlayerCount)
   {
-    commandWeight = 10.0f / activePlayerCount;
+    commandWeight = 1.0f / activePlayerCount;
   }
 
   public void DoCommand(Cmd cmd, string message = "")

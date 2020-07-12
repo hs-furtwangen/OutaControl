@@ -88,6 +88,6 @@ public abstract class Chargeable : Interactable
   }
   public new void SetCommandWeight(int activePlayerCount)
   {
-    commandWeight = 1.0f / activePlayerCount;
+    commandWeight = 5.0f / activePlayerCount;
   }
 }

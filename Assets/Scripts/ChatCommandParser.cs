@@ -122,7 +122,7 @@ public class ChatCommandParser : MonoBehaviour
             case MsgCmd.arm:
                 if (GameLogic.State == GameState.Playing)
                 {
-                    if (team == TEAM.GOOD)
+                    if (team == TEAM.BOTH)
                         return;
 
                     if (IsPlayerBlockedByCooldown(name, Cmd.arm))

@@ -6,7 +6,7 @@ namespace Assets.Scripts.Interactables
     public class Movable : TurnAroundOnCollisionBehaviour
     {
         public Vector2 TargetPosition;
-        public float Speed = 3f;
+        public float Speed = 0.5f;
 
         private float t = 0;
 
