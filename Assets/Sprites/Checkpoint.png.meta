@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 961f2f0d7d2ef1840a0c3764c133fdf7
+guid: 6cd92992ca7eb6649a810d58ad738c9e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6723963429988506304
-    second: Spikes_0
+      213: -3448120935943364757
+    second: Checkpoint_0
   - first:
-      213: -7010832575621253078
-    second: Spikes_1
+      213: 3301549609868922437
+    second: Checkpoint_1
   - first:
-      213: 8562923692314260799
-    second: Spikes_2
+      213: 596405922659037225
+    second: Checkpoint_2
   - first:
-      213: -4810244237682102619
-    second: Spikes_3
+      213: 5240123770684355362
+    second: Checkpoint_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,7 +99,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spikes_0
+      name: Checkpoint_0
       rect:
         serializedVersion: 2
         x: 0
@@ -113,14 +113,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ca9e2f4d11505d50800000000000000
-      internalID: 6723963429988506304
+      spriteID: b6f12861740d520d0800000000000000
+      internalID: -3448120935943364757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spikes_1
+      name: Checkpoint_1
       rect:
         serializedVersion: 2
         x: 32
@@ -134,14 +134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a28bb5edae484be90800000000000000
-      internalID: -7010832575621253078
+      spriteID: 54e0198b0e571dd20800000000000000
+      internalID: 3301549609868922437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spikes_2
+      name: Checkpoint_2
       rect:
         serializedVersion: 2
         x: 0
@@ -155,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f35fa27dabd95d670800000000000000
-      internalID: 8562923692314260799
+      spriteID: 920f70ad60cd64800800000000000000
+      internalID: 596405922659037225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spikes_3
+      name: Checkpoint_3
       rect:
         serializedVersion: 2
         x: 32
@@ -176,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5aea6120a549e3db0800000000000000
-      internalID: -4810244237682102619
+      spriteID: 223b8ba5ec8a8b840800000000000000
+      internalID: 5240123770684355362
       vertices: []
       indices: 
       edges: []
