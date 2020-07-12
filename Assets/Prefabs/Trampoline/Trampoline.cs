@@ -21,9 +21,9 @@ public class Trampoline : MonoBehaviour
 
     private void Update()
     {
-        if (affected && player.gameObject.GetComponent<Character>().ForwardSpeed > 0)
+        if (affected && player.gameObject.GetComponent<Character>().ForwardDirection == MovingDirection.Right)
             player.transform.position += new Vector3(0.01f, 0, 0);
-        if (affected && player.gameObject.GetComponent<Character>().ForwardSpeed < 0)
+        if (affected && player.gameObject.GetComponent<Character>().ForwardDirection == MovingDirection.Left)
             player.transform.position -= new Vector3(0.01f, 0, 0);
 
     }
