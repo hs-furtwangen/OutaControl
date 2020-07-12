@@ -42,10 +42,9 @@ public class Character : MonoBehaviour
     public float InvulnerabilityDuration = 5.0f;
     
     public float ForwardSpeed = 1f;
-    public float VelocityClamp = 0.35f;
+    public float VelocityClampX = 0.35f;
 
-    public float ForwardSpeedLeft = 1f;
-    public float VelocityClampLeft = 0.35f;
+    public float VelocityClampY = 1.0f;
 
     [SerializeField]
   private MovingDirection _forwardDirection = MovingDirection.Right;
@@ -86,7 +85,9 @@ public class Character : MonoBehaviour
             // clamp velocity
             rigidBody.AddForce(PlayerDirection * ForwardSpeed, ForceMode2D.Impulse);
 
-            rigidBody.velocity = Mathf.Abs(rigidBody.velocity.x) > VelocityClamp ? new Vector2(PlayerDirection.x * VelocityClamp, rigidBody.velocity.y) : rigidBody.velocity;
+            rigidBody.velocity = Mathf.Abs(rigidBody.velocity.x) > VelocityClampX ? new Vector2(PlayerDirection.x * VelocityClampX, rigidBody.velocity.y) : rigidBody.velocity;
+            rigidBody.velocity = Mathf.Abs(rigidBody.velocity.y) > VelocityClampY ? new Vector2(PlayerDirection.y * VelocityClampY, rigidBody.velocity.y) : rigidBody.velocity;
+
 
             CheckAndFixHeadFirst();
             CheckAndSetAnimationState();

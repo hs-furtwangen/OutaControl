@@ -362,9 +362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InvulnerabilityDuration: 5
   ForwardSpeed: 1
-  VelocityClamp: 0.35
-  ForwardSpeedLeft: 1
-  VelocityClampLeft: 0.35
+  VelocityClampX: 0.35
+  VelocityClampY: 0.35
   _forwardDirection: 0
   healthDisplay: {fileID: 7448467812698181511}
   MaxAllowedZAngleInDeg: 45
