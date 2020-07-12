@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Interactables;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class ConveyorBelt : Interactable
+public class ConveyorBelt : Movable
 {
     public Vector2 Force = new Vector2(2, 0);
 
@@ -33,9 +34,24 @@ public class ConveyorBelt : Interactable
     private Rigidbody2D rigidBody;
     private bool entered;
 
-    private void Update()
+
+
+    private void Right(string message)
     {
-        if(entered)
+        Debug.Log("Conveyor goes right");
+        RotatingDirection = MovingDirection.Right;
+    }
+
+    private void Left(string message)
+    {
+        Debug.Log("Conveyor goes left");
+        RotatingDirection = MovingDirection.Right;
+    }
+
+
+    private new void Update()
+    {       
+        if (entered)
             rigidBody.AddForce(_force);
     }
 
