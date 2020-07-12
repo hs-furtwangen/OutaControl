@@ -55,6 +55,8 @@ public class GameLogic : MonoBehaviour
         PreperationStateTriggered += (s, e) => Debug.Log("PerperationStateTriggered");
         PlayingStateTriggered += (s, e) => Debug.Log("PlayingStateTriggered");
         GameOverStateTriggered += (s, e) => Debug.Log("GameOverStateTriggered");
+
+
     }
 
     private void Update()
@@ -71,7 +73,7 @@ public class GameLogic : MonoBehaviour
     private void Start()
     {
         // call this at level start
-        //StartGameTimer();
+        // StartGameTimer();
     }
 
     public void StartGameTimer()
