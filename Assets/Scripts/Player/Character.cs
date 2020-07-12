@@ -50,8 +50,6 @@ public class Character : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = _forwardDirection == MovingDirection.Left;
         }
     }
-
-    public int FrameCntAfterToCheckForStuck = 5;
     public float MaxAllowedZAngleInDeg = 35.0f;
 
     private float invulnerabilityCooldown = 0.0f;
@@ -65,7 +63,7 @@ public class Character : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
 
-        rigidBody.centerOfMass = new Vector2(0, -0.5f);
+        rigidBody.centerOfMass = new Vector2(0, -0.125f);
     }
 
 
@@ -113,14 +111,14 @@ public class Character : MonoBehaviour
     {
         var vel = rigidBody.GetPointVelocity(Vector2.zero);
 
-        if (vel.y > 3.0f)
+        if (vel.y > 1.0f)
         {
             animator.SetBool("IsIdle", false);
             animator.SetBool("IsWalking", false);
 
             animator.SetBool("IsFalling", true);
         }
-        else if ((vel.x > 0.15f || vel.x < -0.15f) && vel.y < 3.0f)
+        else if ((vel.x > 0.05f || vel.x < -0.05f) && vel.y < 1.0f)
         {
             animator.SetBool("IsIdle", false);
             animator.SetBool("IsFalling", false);
