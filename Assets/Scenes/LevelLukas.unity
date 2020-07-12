@@ -2566,12 +2566,12 @@ PrefabInstance:
     - target: {fileID: 1947547185456181354, guid: 5e4c83ce01678a843a2102a11858be84,
         type: 3}
       propertyPath: JumpForce.y
-      value: 2.68
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1947547185456181354, guid: 5e4c83ce01678a843a2102a11858be84,
         type: 3}
       propertyPath: JumpForce.x
-      value: 2.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1947547185456181355, guid: 5e4c83ce01678a843a2102a11858be84,
         type: 3}
@@ -2657,6 +2657,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467525517429097659, guid: 5e4c83ce01678a843a2102a11858be84,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e4c83ce01678a843a2102a11858be84, type: 3}
@@ -3788,7 +3793,7 @@ PrefabInstance:
     - target: {fileID: 3271575645283686048, guid: a5678a2c6bb5abe45bd695791da13193,
         type: 3}
       propertyPath: ForwardSpeed
-      value: 0.001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3271575645283686048, guid: a5678a2c6bb5abe45bd695791da13193,
         type: 3}
