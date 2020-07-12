@@ -25,7 +25,7 @@ public class Character : MonoBehaviour
                 animator.SetBool("IsFalling", false);
                 animator.SetBool("IsDead", true);
                 animator.speed = 0.75f;
-                _ = EndGameAfter2Seconds();
+                _ = ResetAfter2Seconds();
             }
         }
     }
@@ -101,26 +101,26 @@ public class Character : MonoBehaviour
         }
     }
 
-    private IEnumerator EndGameAfter2Seconds()
+    private IEnumerator ResetAfter2Seconds()
     {
         yield return new WaitForSeconds(2);
 
-        GameLogic.State = GameState.GameOver;
+        // TODO: Reset here!
+        Debug.Log("Reset game called");
     }
 
     private void CheckAndSetAnimationState()
     {
         var vel = rigidBody.GetPointVelocity(Vector2.zero);
-        Debug.LogError(vel);
 
-        if (vel.y > 10.0f)
+        if (vel.y > 3.0f)
         {
             animator.SetBool("IsIdle", false);
             animator.SetBool("IsWalking", false);
 
             animator.SetBool("IsFalling", true);
         }
-        else if ((vel.x > 0.75f || vel.x < -0.75f) && vel.y < 10.0f)
+        else if ((vel.x > 0.15f || vel.x < -0.15f) && vel.y < 3.0f)
         {
             animator.SetBool("IsIdle", false);
             animator.SetBool("IsFalling", false);

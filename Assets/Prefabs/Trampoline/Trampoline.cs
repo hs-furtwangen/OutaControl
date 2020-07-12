@@ -11,7 +11,7 @@ public class Trampoline : Interactable
         if (collision.gameObject.CompareTag("Player"))
         {
             var rigidBody = collision.gameObject.GetComponent<Rigidbody2D>();
-            rigidBody.AddForce(Vector2.up * JumpForce);
+            rigidBody.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
         }
 
     }
