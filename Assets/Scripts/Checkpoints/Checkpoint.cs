@@ -33,6 +33,7 @@ public class Checkpoint : MonoBehaviour
 
         CheckpointController.activateCheckpoint(transform.position);
         Debug.Log($"Player reached {this.gameObject.name}");
+        if(PausePlayerOnReaching) other.gameObject.GetComponent<Character>().Pause(10);
     }
 
     private IEnumerator SetCamActiveForSeconds(CinemachineVirtualCamera cam, float time)

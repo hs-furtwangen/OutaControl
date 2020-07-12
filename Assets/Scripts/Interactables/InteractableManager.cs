@@ -8,6 +8,12 @@ public class InteractableManager
   Dictionary<string, Interactable> interactables = new Dictionary<string, Interactable>();
   Dictionary<string, int> intIndex = new Dictionary<string, int>();
 
+  Character Character;
+
+  public void Register (Character character){
+    Character = character;
+  }
+
   public void Register(Interactable it)
   {
     int foundAmount = 0;
@@ -46,6 +52,10 @@ public class InteractableManager
 
   public void DistributeCommand(Cmd command, string objectID, TEAM team, string args = "")
   {
+    if (command == Cmd.pause) {
+      Character.Pause(5);
+      return;
+    }
     if (!interactables.ContainsKey(objectID)) return;
     Interactable inter = interactables[objectID];
     if(inter.allowedTeam != team && inter.allowedTeam != TEAM.BOTH) return;

@@ -63,6 +63,7 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        InteractableManager.instance.Register(this);
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
 
