@@ -42,6 +42,8 @@ public class Character : MonoBehaviour
     public float InvulnerabilityDuration = 5.0f;
     public float ForwardSpeed = 1.0f;
 
+    public float VelocityClamp = 1.0f;
+
   [SerializeField]
   private MovingDirection _forwardDirection = MovingDirection.Right;
     public TextMeshProUGUI healthDisplay;
@@ -78,6 +80,10 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        // clamp velocity
+        rigidBody.velocity = rigidBody.velocity.x > VelocityClamp ? new Vector2(VelocityClamp, rigidBody.velocity.y) : rigidBody.velocity;
+
+
         if (Input.GetKeyDown("a"))
             Pause(5);
 

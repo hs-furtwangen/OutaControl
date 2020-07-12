@@ -269,7 +269,7 @@ Transform:
   m_GameObject: {fileID: 6266701835794830162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1631127575705620392}
   - {fileID: 6614838020568643344}
@@ -338,9 +338,9 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 1
-  m_Mass: 0.042427965
-  m_LinearDrag: 2
+  m_UseAutoMass: 0
+  m_Mass: 0.2
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 5fc3d8bc76934b94ab563e94c6ec7d6b, type: 2}
@@ -361,9 +361,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InvulnerabilityDuration: 5
-  ForwardSpeed: 0.00004
-  healthDisplay: {fileID: 7448467812698181511}
+  ForwardSpeed: 0.05
+  VelocityClamp: 0.5
   _forwardDirection: 0
+  healthDisplay: {fileID: 7448467812698181511}
   MaxAllowedZAngleInDeg: 35
 --- !u!95 &2565197445244155804
 Animator:
