@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 1912354294185363543}
   - component: {fileID: 1912354294185363542}
   - component: {fileID: 1912354294185363545}
-  - component: {fileID: 1912354294185363547}
   - component: {fileID: 1912354294185363544}
-  - component: {fileID: -2148705984642472989}
   m_Layer: 0
   m_Name: ConveyorBelt
   m_TagString: Untagged
@@ -79,8 +77,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 2
+  m_Size: {x: 5.16, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,18 +97,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007766962, y: 0.0010625124}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0.125, y: 0.125, z: 0.125, w: 0.125}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 5.16, y: 1}
     adaptiveTilingThreshold: 0.5
-    drawMode: 1
+    drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0354924, y: 1.0071831}
+  m_Size: {x: 5.173812, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &1912354294185363545
 MonoBehaviour:
@@ -131,22 +129,8 @@ MonoBehaviour:
   allowedTeam: 2
   activationThreshold: 1
   commandWeight: 1
-  Speed: 2
---- !u!111 &1912354294185363547
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912354294185363546}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 8d0939979f24f2a46b6589b0288e84f2, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  Force: {x: 1, y: 0}
+  _rotatingDirection: 1
 --- !u!95 &1912354294185363544
 Animator:
   serializedVersion: 3
@@ -166,23 +150,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-2148705984642472989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912354294185363546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f238732249f71fd4d81feffebdb6f8f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NameTextObject: {fileID: 0}
-  identifier: X
-  reactivationCooldown: 0
-  activeDuration: 0
-  allowedTeam: 2
-  activationThreshold: 1
-  commandWeight: 1
-  Speed: 2

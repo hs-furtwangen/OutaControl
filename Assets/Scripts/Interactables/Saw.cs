@@ -6,12 +6,10 @@ namespace Assets.Scripts.Interactables
 {
   public class Saw : Movable
   {
-    // Start is called before the first frame update
     private new void Start()
     {
       identifier = "SAW";
       base.Start();
     }
-
   }
 }
