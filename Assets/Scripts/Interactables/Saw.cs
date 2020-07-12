@@ -12,6 +12,5 @@ namespace Assets.Scripts.Interactables
       identifier = "SAW";
       base.Start();
     }
-
   }
 }

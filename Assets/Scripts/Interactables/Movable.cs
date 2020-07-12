@@ -1,9 +1,4 @@
 ﻿using Assets.Scripts.Player;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets.Scripts.Interactables
@@ -27,8 +22,7 @@ namespace Assets.Scripts.Interactables
 
         private void Update()
         {
-            //if (transform.position.x <= TargetPosition.x && transform.position.y <= TargetPosition.y)
-                t = t < 1 ? Speed * Time.deltaTime : 1;
+            t += t < 1 ? Speed * Time.deltaTime : 1;
 
             transform.position = Vector3.Lerp(transform.position, TargetPosition, t);
 
@@ -53,7 +47,7 @@ namespace Assets.Scripts.Interactables
         private void Right(string message)
         {
             TargetPosition.x += commandWeight;
-           t = 0;
+            t = 0;
         }
         private void Left(string message)
         {

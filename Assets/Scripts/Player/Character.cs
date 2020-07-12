@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
+[SerializeField]
 public enum MovingDirection
 {
     Right = 0,
@@ -8,77 +10,78 @@ public enum MovingDirection
 
 public class Character : MonoBehaviour
 {
-    public int Health = 5;
+    private int _health = 5;
+
+    public int Health
+    {
+        get => _health;
+        set
+        {
+            _health = value;
+            if (_health <= 0)
+            {
+                animator.SetBool("IsWalking", false);
+                animator.SetBool("IsIdle", false);
+                animator.SetBool("IsFalling", false);
+                animator.SetBool("IsDead", true);
+                animator.speed = 0.75f;
+                _ = EndGameAfter2Seconds();
+            }
+        }
+    }
+
+    public bool IsAlive => Health > 0;
+
+    public Vector2 PlayerDirection => ForwardDirection == MovingDirection.Right ? Vector3.right : Vector3.left;
+
     public float InvulnerabilityDuration = 5.0f;
     public float ForwardSpeed = 1.0f;
 
+    [SerializeField]
     private MovingDirection _forwardDirection = MovingDirection.Right;
 
+    [SerializeField]
     public MovingDirection ForwardDirection
     {
         get => _forwardDirection;
         set
         {
             _forwardDirection = value;
-            GetComponent<SpriteRenderer>().flipX = _forwardDirection == MovingDirection.Left;           
+            GetComponent<SpriteRenderer>().flipX = _forwardDirection == MovingDirection.Left;
         }
     }
-
-
 
     public int FrameCntAfterToCheckForStuck = 5;
     public float MaxAllowedZAngleInDeg = 35.0f;
 
-    private Vector3 lastPosition;
-    private int positionCheckCnt;
     private float invulnerabilityCooldown = 0.0f;
 
     private Animator animator;
-    private Collider2D collider;
+    private Rigidbody2D rigidBody;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-       
         animator = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
 
-
-        animator.SetBool("IsFalling", true);
-        lastPosition = transform.position;
-  
-
+        rigidBody.centerOfMass = new Vector2(0, -0.5f);
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        animator.SetBool("IsIdle", false);
-        animator.SetBool("IsWalking", false);
-        animator.SetBool("IsFalling", true);
-    }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        animator.SetBool("IsFalling", false);
-        animator.SetBool("IsIdle", true);
-    }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Health <= 0)
-            GameLogic.State = GameState.GameOver;
-
-        // TODO: Refactor. Make it good :)
-
-        ++positionCheckCnt;
-        if(positionCheckCnt > 1000 && !animator.GetBool("IsFalling"))
+        if (IsAlive)
         {
-            animator.SetBool("IsWalking", true);
 
-            var vec = (ForwardDirection == MovingDirection.Right ? 1.0f : -1.0f) * ForwardSpeed * Time.deltaTime;
-            transform.position += Vector3.right * vec;
+            rigidBody.AddForce(PlayerDirection * ForwardSpeed, ForceMode2D.Impulse);
+
+            CheckAndFixHeadFirst();
+            CheckAndSetAnimationState();
         }
-     
+
 
         //update invulnerability value
         if (invulnerabilityCooldown <= 0)
@@ -96,5 +99,57 @@ public class Character : MonoBehaviour
             invulnerabilityCooldown = InvulnerabilityDuration;
             //TODO CHECKPOINT IF DEAD
         }
+    }
+
+    private IEnumerator EndGameAfter2Seconds()
+    {
+        yield return new WaitForSeconds(2);
+
+        GameLogic.State = GameState.GameOver;
+    }
+
+    private void CheckAndSetAnimationState()
+    {
+        var vel = rigidBody.GetPointVelocity(Vector2.zero);
+        Debug.LogError(vel);
+
+        if (vel.y > 10.0f)
+        {
+            animator.SetBool("IsIdle", false);
+            animator.SetBool("IsWalking", false);
+
+            animator.SetBool("IsFalling", true);
+        }
+        else if ((vel.x > 0.75f || vel.x < -0.75f) && vel.y < 10.0f)
+        {
+            animator.SetBool("IsIdle", false);
+            animator.SetBool("IsFalling", false);
+
+            animator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
+            animator.SetBool("IsFalling", false);
+
+            animator.SetBool("IsIdle", true);
+        }
+    }
+
+    private float t;
+
+    private void CheckAndFixHeadFirst()
+    {
+        t += t < 1 ? 3.0f * Time.deltaTime : 1;
+
+        if (transform.rotation.eulerAngles.z > 35.0f)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, t);
+        }
+
+        // reset t if we are upright again
+        if (Mathf.RoundToInt(transform.rotation.eulerAngles.z) == 0)
+            t = 0;
+
     }
 }

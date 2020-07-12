@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6266701835794830160}
   - component: {fileID: 6266701835794829486}
   - component: {fileID: 3271575645283686048}
-  - component: {fileID: 1077562805}
   - component: {fileID: 2565197445244155804}
   m_Layer: 0
   m_Name: Player
@@ -123,17 +122,17 @@ Rigidbody2D:
   m_GameObject: {fileID: 6266701835794830162}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 1
   m_Mass: 0.71308035
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &3271575645283686048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,27 +145,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91b2d5e49bdb26489d5f6014052888a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 5
   InvulnerabilityDuration: 5
-  ForwardSpeed: 1.5
-  ForwardDirection: 0
+  ForwardSpeed: 0.045
+  _forwardDirection: 0
   FrameCntAfterToCheckForStuck: 20
   MaxAllowedZAngleInDeg: 35
---- !u!111 &1077562805
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6266701835794830162}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: d88f8e44654072749937768032cd7f59, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &2565197445244155804
 Animator:
   serializedVersion: 3
@@ -177,7 +160,7 @@ Animator:
   m_GameObject: {fileID: 6266701835794830162}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 65c3599f1b8e29e43840e6935d814414, type: 2}
+  m_Controller: {fileID: 9100000, guid: a3cbcd12802034d49b24cfc474792127, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
