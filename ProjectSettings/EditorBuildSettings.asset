@@ -9,18 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Start.unity
     guid: 6d6e638499348634cae42b6c124a2d41
   - enabled: 1
-    path: Assets/Scenes/Twitch.unity
-    guid: b89aca34eb3fe4a44a77dead18ea8b4e
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 7f02cfa551a47a546ab41776b8801406
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 365f0c25cf60ae748808760a4f9d5fe2
-  - enabled: 1
-    path: Assets/Scenes/TestEverything.unity
-    guid: 7af836d9a0ae8e946ae53477fdca40b0
-  - enabled: 1
     path: Assets/Scenes/LevelLukas.unity
     guid: 1a2b9b8a2d20eec4582d40949e55cf23
   m_configObjects: {}
