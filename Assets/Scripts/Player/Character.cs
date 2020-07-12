@@ -22,6 +22,8 @@ public class Character : MonoBehaviour
         set
         {
             _health = value;
+            healthDisplay.text = Health.ToString();
+
             if (_health <= 0)
             {
                 animator.SetBool("IsWalking", false);
@@ -29,7 +31,7 @@ public class Character : MonoBehaviour
                 animator.SetBool("IsFalling", false);
                 animator.SetBool("IsDead", true);
                 animator.speed = 0.75f;
-                _ = ResetAfter2Seconds();
+                StartCoroutine(ResetAfter2Seconds());
             }
         }
     }
@@ -77,6 +79,7 @@ public class Character : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         healthDisplay.text = Health.ToString();
+
         rigidBody.centerOfMass = new Vector2(0, -0.125f);
     }
 
@@ -139,11 +142,20 @@ public class Character : MonoBehaviour
 
         animator.SetBool("IsDead", false);
         Health = 5;
+        
 
         var checkpoint = CheckpointController.latestActivatedCheckpoint;
-        var pos = checkpoint.Item1.transform.position;
-        transform.position = new Vector3(pos.x, pos.y + 1.0f);
-        ForwardDirection = checkpoint.Item2;
+
+        if(checkpoint != null)
+        {
+            var pos = checkpoint.Item1.transform.position;
+            transform.position = new Vector3(pos.x, pos.y + 1.0f);
+            ForwardDirection = checkpoint.Item2;
+        }
+        else
+        {
+            GameLogic.State = GameState.GameOver;
+        }
     }
 
     public void Pause(int secondsToWait)
