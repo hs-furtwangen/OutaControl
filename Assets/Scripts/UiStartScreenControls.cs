@@ -16,7 +16,7 @@ public class UiStartScreenControls : MonoBehaviour
             Config.TwitchAccessToke = AccessTokenField.text;
             Config.TwitchChannel = ChannelField.text;
 
-            SceneManager.LoadScene("Twitch");
+            SceneManager.LoadScene("TestEverything");
         }
     }
 

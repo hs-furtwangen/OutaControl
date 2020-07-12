@@ -16,24 +16,16 @@ public class ChatCommandParser : MonoBehaviour
 
     public Client twitchClient;
 
-    public static ChatCommandParser Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = new ChatCommandParser();
-            }
-            return _instance;
-        }
-    }
+    public static ChatCommandParser Instance { get { return _instance; } }
 
     private List<string> _joinedPlayers;
     private List<string> _goodPlayers;
     private List<string> _evilPlayers;
 
-    public ChatCommandParser()
+    private void Start()
     {
+        _instance = this.GetComponent<ChatCommandParser>();
+
         _joinedPlayers = new List<string>(Config.MaxPlayers);
         _goodPlayers = new List<string>((int)Math.Ceiling(Config.MaxPlayers / 2f));
         _evilPlayers = new List<string>((int)Math.Floor(Config.MaxPlayers / 2f));
@@ -195,19 +187,19 @@ public class ChatCommandParser : MonoBehaviour
 
         //player doesn't exist in dict so it is their first cmd
         if (!_playerTimers.TryGetValue(playername, out cmdtimer))
-            return true;
+            return false;
 
         float timer;
 
         //player did not yet issue this command so there is no cooldown
         if (!cmdtimer.TryGetValue(cmd, out timer))
-            return true;
+            return false;
 
         //the cooldown ran out for this player-cmd
         if (timer <= 0)
-            return true;
+            return false;
 
-        return false;
+        return true;
     }
 
     private void SetPlayerCmdCooldown(string playername, Cmd cmd)
