@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Dynamic;
 using UnityEngine;
 
 [SerializeField]
@@ -31,6 +32,8 @@ public class Character : MonoBehaviour
     }
 
     public bool IsAlive => Health > 0;
+
+    public bool IsPaused { get; private set; }
 
     public Vector2 PlayerDirection => ForwardDirection == MovingDirection.Right ? Vector3.right : Vector3.left;
 
@@ -71,14 +74,17 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (IsAlive)
+        if (Input.GetKeyDown("a"))
+            Pause(5);
+
+        if (IsAlive && !IsPaused)
         {
-
             rigidBody.AddForce(PlayerDirection * ForwardSpeed, ForceMode2D.Impulse);
-
             CheckAndFixHeadFirst();
             CheckAndSetAnimationState();
         }
+
+
 
 
         //update invulnerability value
@@ -107,18 +113,34 @@ public class Character : MonoBehaviour
         Debug.Log("Reset game called");
     }
 
+    public void Pause(int secondsToWait)
+    {
+        Debug.LogWarning("Pause called");
+        IsPaused = !IsPaused;
+        animator.SetBool("IsWalking", false);
+        animator.SetBool("IsIdle", true);
+        StartCoroutine(PauseForSeconds(secondsToWait));
+    }
+
+    private IEnumerator PauseForSeconds(int secondsToWait)
+    {
+        yield return new WaitForSeconds(secondsToWait);
+        animator.SetBool("IsIdle", false);
+        IsPaused = !IsPaused;
+    }
+
     private void CheckAndSetAnimationState()
     {
         var vel = rigidBody.GetPointVelocity(Vector2.zero);
 
-        if (vel.y > 1.0f)
+        if (vel.y > 0.5f)
         {
             animator.SetBool("IsIdle", false);
             animator.SetBool("IsWalking", false);
 
             animator.SetBool("IsFalling", true);
         }
-        else if ((vel.x > 0.05f || vel.x < -0.05f) && vel.y < 1.0f)
+        else if ((vel.x > 0.015f || vel.x < -0.015f) && vel.y < 0.5f)
         {
             animator.SetBool("IsIdle", false);
             animator.SetBool("IsFalling", false);
