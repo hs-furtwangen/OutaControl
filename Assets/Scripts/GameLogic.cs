@@ -20,6 +20,8 @@ public class GameLogic : MonoBehaviour
 
     public float TimeToWinInSeconds = 300;
 
+    public float TimeRemaining;
+
     public static EventHandler<EventArgs> PreperationStateTriggered;
     public static EventHandler<EventArgs> PlayingStateTriggered;
     public static EventHandler<EventArgs> GameOverStateTriggered;
@@ -55,10 +57,23 @@ public class GameLogic : MonoBehaviour
         GameOverStateTriggered += (s, e) => Debug.Log("GameOverStateTriggered");
     }
 
+    private void Update()
+    {
+        var remainingTime = Mathf.RoundToInt(TimeToWinInSeconds - (Time.realtimeSinceStartup - gameStartTime));
+        TimeRemaining = remainingTime < 0 ? 0 : remainingTime;
+    }
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
     }
+
+    private void Start()
+    {
+        // call this at level start
+        //StartGameTimer();
+    }
+
     public void StartGameTimer()
     {
         gameStartTime = Time.realtimeSinceStartup;
