@@ -3,7 +3,7 @@ using System.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
-public class Trampoline : Movable
+public class Trampoline : MonoBehaviour
 {
     public Vector2 JumpForce = new Vector2(0.005f, 0.5f);
 
@@ -13,7 +13,6 @@ public class Trampoline : Movable
     {
         animator = GetComponent<Animator>();
         animator.enabled = false;
-        base.Start();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
