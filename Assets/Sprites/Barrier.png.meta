@@ -143,6 +143,84 @@ TextureImporter:
   - first:
       213: -6596387289540479157
     second: Barrier_23
+  - first:
+      213: 5964685259265811178
+    second: Barrier_19
+  - first:
+      213: 8098032200628930778
+    second: Barrier_24
+  - first:
+      213: -6855880209644079327
+    second: Barrier_25
+  - first:
+      213: -3674550765947830922
+    second: Barrier_26
+  - first:
+      213: 4198817047411772856
+    second: Barrier_27
+  - first:
+      213: -3205822102696577489
+    second: Barrier_28
+  - first:
+      213: 8136579260633815859
+    second: Barrier_29
+  - first:
+      213: -4752807589842725845
+    second: Barrier_30
+  - first:
+      213: -3210385920614908461
+    second: Barrier_31
+  - first:
+      213: -7008397139872433956
+    second: Barrier_32
+  - first:
+      213: 2724047541302777335
+    second: Barrier_33
+  - first:
+      213: 1455904005978999764
+    second: Barrier_34
+  - first:
+      213: -3156854116496877958
+    second: Barrier_35
+  - first:
+      213: -1079286705110463495
+    second: Barrier_36
+  - first:
+      213: -8843541032144681082
+    second: Barrier_37
+  - first:
+      213: -6376702558528034173
+    second: Barrier_38
+  - first:
+      213: -3855782550631663726
+    second: Barrier_39
+  - first:
+      213: -6951577910927766303
+    second: Barrier_40
+  - first:
+      213: -2191045063781976256
+    second: Barrier_41
+  - first:
+      213: 8158684979450459201
+    second: Barrier_42
+  - first:
+      213: 6342247319324327242
+    second: Barrier_43
+  - first:
+      213: 6881762177769965590
+    second: Barrier_44
+  - first:
+      213: 3969573495856695125
+    second: Barrier_45
+  - first:
+      213: 3919817550350258019
+    second: Barrier_46
+  - first:
+      213: 3843126815748371462
+    second: Barrier_47
+  - first:
+      213: -4870458942512281957
+    second: Barrier_48
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -232,7 +310,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -253,7 +331,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 128
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -274,7 +352,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 128
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -295,7 +373,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
-        y: 128
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -324,8 +402,8 @@ TextureImporter:
       name: Barrier_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
+        x: 160
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -345,15 +423,19 @@ TextureImporter:
       name: Barrier_6
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
+        x: 192
+        y: 192
         width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 0}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 2969e1ec4a2a34fc0800000000000000
@@ -366,8 +448,8 @@ TextureImporter:
       name: Barrier_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
+        x: 0
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -387,8 +469,8 @@ TextureImporter:
       name: Barrier_8
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
+        x: 32
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -413,8 +495,8 @@ TextureImporter:
       name: Barrier_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
+        x: 96
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -434,8 +516,8 @@ TextureImporter:
       name: Barrier_11
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
+        x: 128
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -455,8 +537,8 @@ TextureImporter:
       name: Barrier_12
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
+        x: 160
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -476,8 +558,8 @@ TextureImporter:
       name: Barrier_13
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
+        x: 192
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -486,8 +568,8 @@ TextureImporter:
       outline: []
       physicsShape:
       - - {x: -16, y: 16}
-        - {x: -16, y: 16}
-        - {x: 16, y: 0}
+        - {x: -16, y: 0}
+        - {x: 16, y: -16}
         - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
@@ -501,8 +583,8 @@ TextureImporter:
       name: Barrier_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 32
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -522,8 +604,8 @@ TextureImporter:
       name: Barrier_16
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 64
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -540,89 +622,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Barrier_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -16, y: 0}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-        - {x: 16, y: -16}
-        - {x: -16, y: 0}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 62cdaf2040f76fcd0800000000000000
-      internalID: -2524690885887992794
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Barrier_9
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: 16, y: 16}
-        - {x: -16, y: 0}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-        - {x: 16, y: 16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: d12ff1075bc84c680800000000000000
-      internalID: -8735702666293808611
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Barrier_14
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -16, y: 16}
-        - {x: -16, y: 0}
-        - {x: 16, y: -16}
-        - {x: 16, y: -16}
-        - {x: 16, y: 16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7fe1a8110fd092bc0800000000000000
-      internalID: -3807496685227467017
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Barrier_17
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -642,8 +646,8 @@ TextureImporter:
       name: Barrier_18
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
+        x: 128
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -665,11 +669,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Barrier_19
+      name: Barrier_20
       rect:
         serializedVersion: 2
-        x: 128
-        y: 32
+        x: 192
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -678,31 +682,9 @@ TextureImporter:
       outline: []
       physicsShape:
       - - {x: -16, y: 16}
-        - {x: -16, y: 0}
-        - {x: -16, y: 0}
-        - {x: 16, y: 16}
-        - {x: 16, y: 16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: abe7f8baa67913400800000000000000
-      internalID: 302189134411169466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Barrier_20
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 0}
       tessellationDetail: 0
       bones: []
       spriteID: 76bb51c23b2f34f50800000000000000
@@ -715,8 +697,8 @@ TextureImporter:
       name: Barrier_21
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 0
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -736,8 +718,8 @@ TextureImporter:
       name: Barrier_22
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 32
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -757,8 +739,8 @@ TextureImporter:
       name: Barrier_23
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
+        x: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -770,6 +752,647 @@ TextureImporter:
       bones: []
       spriteID: b47b90695bce474a0800000000000000
       internalID: -6596387289540479157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 046922fe048092bf0800000000000000
+      internalID: -348738421161552320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0a8fb3f8b081bb70800000000000000
+      internalID: 8913046669394676239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d05147c4c83a147f0800000000000000
+      internalID: -630042649881733875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_19
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae22c8b14a1d6c250800000000000000
+      internalID: 5964685259265811178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_24
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8892a916df16070800000000000000
+      internalID: 8098032200628930778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 127b889f5450bd0a0800000000000000
+      internalID: -6855880209644079327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_26
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d3a860c8f510dc0800000000000000
+      internalID: -3674550765947830922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_27
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 0}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd45dbbbd1354a30800000000000000
+      internalID: 4198817047411772856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f26bca368c1a283d0800000000000000
+      internalID: -3205822102696577489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_29
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33b93e46abfeae070800000000000000
+      internalID: 8136579260633815859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_30
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b24d4a1bda2aa0eb0800000000000000
+      internalID: -4752807589842725845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_31
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dd35d9b30b6273d0800000000000000
+      internalID: -3210385920614908461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_32
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd83a01feeb2dbe90800000000000000
+      internalID: -7008397139872433956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_33
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: 16, y: 0}
+        - {x: 16, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f5d0a26ec2cdc520800000000000000
+      internalID: 2724047541302777335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_34
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: 0}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db427fcaf8643410800000000000000
+      internalID: 1455904005978999764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a76597228e99034d0800000000000000
+      internalID: -3156854116496877958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_36
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fbc613c57a9501f0800000000000000
+      internalID: -1079286705110463495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_37
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 687cc6e494e654580800000000000000
+      internalID: -8843541032144681082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_38
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38aac98eec66187a0800000000000000
+      internalID: -6376702558528034173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_39
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2973372f2328d7ac0800000000000000
+      internalID: -3855782550631663726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_40
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ecc2b698b8078f90800000000000000
+      internalID: -6951577910927766303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_41
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 0}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 047f6668f18d791e0800000000000000
+      internalID: -2191045063781976256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 144b57223c8793170800000000000000
+      internalID: 8158684979450459201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_43
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4dfff19550340850800000000000000
+      internalID: 6342247319324327242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_44
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61882b25d3ee08f50800000000000000
+      internalID: 6881762177769965590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_45
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55708521012c61730800000000000000
+      internalID: 3969573495856695125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_46
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: 0}
+        - {x: 16, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36f08f04b4df56630800000000000000
+      internalID: 3919817550350258019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_47
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: 0}
+        - {x: 16, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 604b5772a77855530800000000000000
+      internalID: 3843126815748371462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Barrier_48
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 16}
+        - {x: -16, y: 0}
+        - {x: 16, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b964e668567a86cb0800000000000000
+      internalID: -4870458942512281957
       vertices: []
       indices: 
       edges: []
